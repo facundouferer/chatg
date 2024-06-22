@@ -1,38 +1,71 @@
 import { createContext, useContext, useState } from 'react';
 import { ChatResponse } from '../types/TypesChat';
+import { getFromLocalStorage, saveToLocalStorage, saveDarkModeToLocalStorage, getDarkModeFromLocalStorage } from '../LocalStorage/LocalStorage';
 
 interface UserContextType {
   darkMode: boolean;
-  setDarkMode: (value: boolean) => void;
+  changeDarkMode: (value: boolean) => void;
+  loadDarkMode: () => void;
   listOfMessages: ChatResponse[];
   addMessage?: (message: ChatResponse) => void;
+  loadMessages: () => void;
 }
 
 const userContext = createContext<UserContextType>({
   darkMode: false,
-  setDarkMode: () => { },
+  changeDarkMode: () => { },
+  loadDarkMode: () => { },
   listOfMessages: [],
-  addMessage: () => { }
+  addMessage: () => { },
+  loadMessages: () => []
 });
+
+
 
 export const useUserContext = () => useContext(userContext);
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(false)
   const [listOfMessages, setListOfMessages] = useState<ChatResponse[]>([])
 
   const addMessage = (message: ChatResponse) => {
-    setListOfMessages([...listOfMessages, message])
+    setListOfMessages(prevList => {
+      const newList = [...prevList, message];
+      saveToLocalStorage("listOfMessages", newList);
+      return newList;
+    });
+  };
+
+  const loadMessages = () => {
+    const messages = getFromLocalStorage("listOfMessages");
+    if (messages) {
+      setListOfMessages(messages)
+    }
   }
+
+  const changeDarkMode = (value: boolean) => {
+    setDarkMode(value);
+    saveDarkModeToLocalStorage("darkMode", value);
+  }
+
+  const loadDarkMode = () => {
+    const darkMode = getDarkModeFromLocalStorage("darkMode");
+    if (darkMode) {
+      setDarkMode(darkMode)
+    }
+  }
+
 
   return (
     <userContext.Provider
       value={{
         darkMode,
-        setDarkMode,
+        changeDarkMode,
+        loadDarkMode,
         listOfMessages,
-        addMessage
+        addMessage,
+        loadMessages
       }}>
       {children}
     </userContext.Provider>

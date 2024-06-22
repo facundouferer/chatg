@@ -1,19 +1,32 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import { useUserContext } from '../Context/UserProviders'
 
 const SwitchDarkMode = () => {
 
-  const { setDarkMode } = useUserContext()
+  const { changeDarkMode, loadDarkMode, darkMode } = useUserContext()
+  const [value, setValue] = useState<boolean>(false)
 
-  const handleChangeDarkMode = (e: any) => {
-    setDarkMode(e)
+  useEffect(() => {
+    loadDarkMode()
+  }, [])
+
+  useEffect(() => {
+    setValue(darkMode)
+  }, [darkMode])
+
+  const handleChangeDarkMode = (e: boolean) => {
+    changeDarkMode(e)
   }
 
   return (
-    <div>
-      <input type="checkbox" id="switch" onChange={(e) => handleChangeDarkMode(e.target.checked)} />
-      <label htmlFor="switch" className='ml-3'>DarkMode</label>
-    </div>
+    <>
+      <input
+        type="checkbox"
+        id="switchDarckMode"
+        onChange={(e) => handleChangeDarkMode(e.target.checked)}
+        checked={value}
+      />
+    </>
   )
 }
 
