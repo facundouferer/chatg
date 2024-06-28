@@ -1,12 +1,15 @@
 import SwitchDarkMode from './SwitchDarkMode'
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, NavbarMenuToggle, NavbarMenu } from "@nextui-org/react";
 import { useUserContext } from '../Context/UserProviders'
 import textoLogo from '../assets/texto-logo.svg'
+import aboutIcon from '../assets/about.svg'
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
   const { clearMessages } = useUserContext()
+
 
   const consultingClearMessages = () => {
     Swal.fire({
@@ -32,19 +35,28 @@ const Header = () => {
 
   return (
     <Navbar isBordered isBlurred={false} className='dark:bg-laguna-700 bg-laguna p-2 text-laguna-50 dark:text-laguna-100'>
-      <NavbarBrand>
-        <img src={textoLogo} alt="logo" className="w-20" />
-      </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link
-            color="foreground"
-            href="https://ele.chaco.gob.ar/"
-            target='_new'>
-            <span className='text-laguna-50'>'ELE'</span>
+
+      <NavbarContent className="sm:hidden" justify="start">
+        <NavbarMenuToggle />
+        <Link to="/">
+          <img src={textoLogo} alt="logo" className="w-14" />
+        </Link>
+      </NavbarContent>
+
+      <NavbarContent className="hidden sm:flex gap-4 text-laguna-50" justify="center">
+        <NavbarBrand>
+          <Link to="/">
+            <img src={textoLogo} alt="logo" className="w-14" />
           </Link>
+        </NavbarBrand>
+        <NavbarItem>
+          <Link to="/">Chat</Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link to="/about">Nosotros</Link>
         </NavbarItem>
       </NavbarContent>
+
       <NavbarContent justify="end">
         <NavbarItem>
           <Button
@@ -60,6 +72,16 @@ const Header = () => {
           <SwitchDarkMode />
         </NavbarItem>
       </NavbarContent>
+
+      <NavbarMenu
+        className='text-laguna-100 dark:text-laguna-50 bg-laguna flex justify-center items-center h-screen'
+      >
+        <div className="flex flex-col items-center space-y-4">
+          <Link to="/">Chat</Link>
+          <Link to="/about">Nosotros</Link>
+        </div>
+      </NavbarMenu>
+
     </Navbar>
   )
 }

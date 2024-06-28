@@ -1,13 +1,20 @@
 import './styles/App.css'
-import Index from './pages/index'
 import { UserProvider } from './Context/UserProviders'
+import { HashRouter, Route, Routes } from "react-router-dom";
+import Index from './pages/Index'
+import About from './pages/About'
 
 function App() {
 
   return (
     <>
       <UserProvider>
-        <Index />
+        <HashRouter basename="/">
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </HashRouter>
       </UserProvider>
     </>
   )
