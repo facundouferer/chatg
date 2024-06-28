@@ -2,7 +2,6 @@ import SwitchDarkMode from './SwitchDarkMode'
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, NavbarMenuToggle, NavbarMenu } from "@nextui-org/react";
 import { useUserContext } from '../Context/UserProviders'
 import textoLogo from '../assets/texto-logo.svg'
-import aboutIcon from '../assets/about.svg'
 import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom';
 
