@@ -1,33 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-#switchDarckMode {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  background-color: #000000;
-  appearance: none;
-  outline: none;
-  border-radius: 2em;
-  transition: .5s;
-  cursor: pointer;
-}
-
-#switchDarckMode:checked {
-  background-color: #004ac9;
-}
-
-#switchDarckMode::after {
-  content: '🌜';
-  position: absolute;
-  transition: .5s;
-  top: 3px;
-  left: 6px;
-}
-
-#switchDarckMode:checked::after {
-  content: '🌞';
-  top: 3px;
-  left: 7px;
-}

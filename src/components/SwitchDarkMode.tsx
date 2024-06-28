@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useUserContext } from '../Context/UserProviders'
+import { Switch } from "@nextui-org/react";
+import { MoonIcon } from "./MoonIcon";
+import { SunIcon } from "./SunIcon";
 
 const SwitchDarkMode = () => {
 
@@ -14,18 +17,16 @@ const SwitchDarkMode = () => {
     setValue(darkMode)
   }, [darkMode])
 
-  const handleChangeDarkMode = (e: boolean) => {
-    changeDarkMode(e)
-  }
-
   return (
     <>
-      <input
-        type="checkbox"
-        id="switchDarckMode"
-        onChange={(e) => handleChangeDarkMode(e.target.checked)}
-        checked={value}
-      />
+      <Switch
+        size="lg"
+        color="secondary"
+        isSelected={value}
+        startContent={<SunIcon />}
+        endContent={<MoonIcon />}
+        onValueChange={changeDarkMode}>
+      </Switch>
     </>
   )
 }

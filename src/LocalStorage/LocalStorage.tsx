@@ -8,6 +8,14 @@ export const saveToLocalStorage = (key: string, value: ChatResponse[]) => {
   }
 }
 
+export const clearLocalStorage = (key: string) => {
+  try {
+    localStorage.removeItem(key);
+  } catch (error) {
+    console.error(`Error clearing localStorage: ${error}`);
+  }
+}
+
 export const getFromLocalStorage = (key: string): ChatResponse[] | null => {
   try {
     const value = localStorage.getItem(key);

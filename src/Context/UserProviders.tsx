@@ -1,6 +1,12 @@
 import { createContext, useContext, useState } from 'react';
 import { ChatResponse } from '../types/TypesChat';
-import { getFromLocalStorage, saveToLocalStorage, saveDarkModeToLocalStorage, getDarkModeFromLocalStorage } from '../LocalStorage/LocalStorage';
+import {
+  getFromLocalStorage,
+  saveToLocalStorage,
+  saveDarkModeToLocalStorage,
+  getDarkModeFromLocalStorage,
+  clearLocalStorage
+} from '../LocalStorage/LocalStorage';
 
 interface UserContextType {
   darkMode: boolean;
@@ -9,6 +15,7 @@ interface UserContextType {
   listOfMessages: ChatResponse[];
   addMessage?: (message: ChatResponse) => void;
   loadMessages: () => void;
+  clearMessages: () => void;
 }
 
 const userContext = createContext<UserContextType>({
@@ -17,10 +24,9 @@ const userContext = createContext<UserContextType>({
   loadDarkMode: () => { },
   listOfMessages: [],
   addMessage: () => { },
-  loadMessages: () => []
+  loadMessages: () => [],
+  clearMessages: () => { }
 });
-
-
 
 export const useUserContext = () => useContext(userContext);
 
@@ -44,6 +50,11 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
+  const clearMessages = () => {
+    setListOfMessages([]);
+    clearLocalStorage("listOfMessages");
+  }
+
   const changeDarkMode = (value: boolean) => {
     setDarkMode(value);
     saveDarkModeToLocalStorage("darkMode", value);
@@ -65,7 +76,8 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
         loadDarkMode,
         listOfMessages,
         addMessage,
-        loadMessages
+        loadMessages,
+        clearMessages
       }}>
       {children}
     </userContext.Provider>

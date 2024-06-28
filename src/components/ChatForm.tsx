@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Button, Tooltip, Input } from "@nextui-org/react";
+import sendIcon from "../assets/send-icon.svg";
 
 interface ChatFormProps {
   setQuestion: React.Dispatch<React.SetStateAction<string>>;
@@ -15,27 +17,37 @@ const ChatForm: React.FC<ChatFormProps> = ({ setQuestion, isSearching }) => {
     setTextQuestion('');
   };
 
+
   return (
-    <>
-      <form
-        onSubmit={handleSubmit}
-        className="flex">
-        <input
-          className="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
-          aria-label="Filter projects"
-          type="text"
-          placeholder="Escribe tu pregunta..."
-          value={textQuestion}
-          onChange={(e) => setTextQuestion(e.target.value)}
-          disabled={isSearching}
-        />
-        <button
-          type="submit"
-          disabled={isSearching}
-          className="dark:bg-lapacho-950 ml-3 hover:bg-lapacho-400 group flex items-center rounded-md bg-lapacho text-white text-sm font-medium pl-2 pr-3 py-2 shadow-sm"
-        >{!isSearching ? "OK" : "pensando..."}</button>
-      </form>
-    </>
+    <div className="flex justify-center items-center">
+      <div className="max-w-screen-lg w-full">
+        <form
+          onSubmit={handleSubmit}
+          className="flex">
+          <Input
+            size='sm'
+            type="text"
+            label="Escribe tu pregunta..."
+            value={textQuestion}
+            onChange={(e) => setTextQuestion(e.target.value)}
+            disabled={isSearching}
+          />
+          <Tooltip showArrow={true} content="Enter para enviar tu pregunta">
+            <Button
+              size="lg"
+              type="submit"
+              disabled={isSearching}
+              className="ml-2 flex items-center pl-1 pr-1 bg-laguna-100 dark:bg-laguna-600 dark:text-laguna-50 text-laguna-950"
+              isLoading={isSearching}
+            >
+              {!isSearching ? (
+                <img src={sendIcon} alt="send" className="w-6 h-6" />
+              ) : ""}
+            </Button>
+          </Tooltip>
+        </form>
+      </div>
+    </div>
   );
 };
 

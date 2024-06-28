@@ -10,7 +10,6 @@ const GeminisChat = async (consulta: string) => {
   const model = genAI.getGenerativeModel({ model: model_name });
 
   const chatResponse = await model.generateContent(consulta);
-  console.log(chatResponse);
 
   const ratings = chatResponse?.response?.promptFeedback?.safetyRatings ?? [];
 

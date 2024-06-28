@@ -60,7 +60,7 @@ const Index = () => {
       <div className="fixed top-0 left-0 right-0 w-full z-10">
         <Header />
       </div>
-      <div className="flex-1 overflow-y-auto p-4 pt-[4.5rem] pb-[4.5rem] dark:bg-black bg-laguna-100"> {/* Ajusta el padding para header y footer */}
+      <div className="flex-1 overflow-y-auto p-4 pt-[4.5rem] pb-[4.5rem] dark:bg-gray-800 bg-gray-100 "> {/* Ajusta el padding para header y footer */}
         <div className="max-w-screen-lg mx-auto">
           <ul>
             {listOfMessages.map((item, index) => (
@@ -69,7 +69,7 @@ const Index = () => {
           </ul>
         </div>
       </div>
-      <div className="fixed bottom-0 left-0 right-0 w-full p-4 bg-laguna-300 text-white dark:bg-laguna-700 z-10">
+      <div className="fixed bottom-0 left-0 right-0 w-full p-4 bg-laguna text-white dark:bg-laguna-700 z-10">
         <ChatForm setQuestion={setQuestion} isSearching={isSearching} />
       </div>
     </div>
