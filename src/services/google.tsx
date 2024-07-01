@@ -24,7 +24,7 @@ const GeminisChat = async (consulta: string) => {
     const candidates = chatResponse?.response?.candidates ?? [];
 
     const texto = candidates[0]?.content?.parts[0]?.text
-    const resultado = texto ? texto : "🤐"
+    const resultado = texto ? texto : `${import.meta.env.VITE_NOT_RESPONDING}`
 
     const response: ChatResponse = {
       type: "answer",
@@ -37,7 +37,7 @@ const GeminisChat = async (consulta: string) => {
   } else {
     const response: ChatResponse = {
       type: "answer",
-      text: '🤐 No todas las preguntas tienen respuesta, intenta con otra pregunta.',
+      text: `${import.meta.env.VITE_NOT_RESPONDING}`,
       speaker: "bot",
       finishReason: "",
       safetyRatings: safetyRatings

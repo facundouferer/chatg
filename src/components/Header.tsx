@@ -38,21 +38,21 @@ const Header = () => {
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle />
         <Link to="/">
-          <img src={textoLogo} alt="logo" className="w-14" />
+          <img src={textoLogo} alt="logo" className="h-6" />
         </Link>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4 text-laguna-50" justify="center">
         <NavbarBrand>
           <Link to="/">
-            <img src={textoLogo} alt="logo" className="w-14" />
+            <img src={textoLogo} alt="logo" className="h-6" />
           </Link>
         </NavbarBrand>
         <NavbarItem>
           <Link to="/">Chat</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link to="/about">Nosotros</Link>
+          <Link to="/about">Desarrollo</Link>
         </NavbarItem>
       </NavbarContent>
 
@@ -77,7 +77,7 @@ const Header = () => {
       >
         <div className="flex flex-col items-center space-y-4">
           <Link to="/">Chat</Link>
-          <Link to="/about">Nosotros</Link>
+          <Link to="/about">Desarrollo</Link>
         </div>
       </NavbarMenu>
 

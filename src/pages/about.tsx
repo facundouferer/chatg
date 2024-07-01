@@ -50,14 +50,19 @@ const About = () => {
                     Cuando haces una pregunta, la API busca la respuesta y te la muestra en la pantalla para que puedas aprender más y resolver tus dudas fácilmente.
                   </p>
                   <h2 className="text-xl font-bold mb-2">Equipo Técnico</h2>
-                  <p className="mb-4">
-                    El sitio web fue puesto en marcha por <a className='dark:text-laguna-100' href="https://www.linkedin.com/in/guillermo-rohde-b240b416/" target='_blank'>Guillermo</a>, quien se aseguró de que todo funcione bien en nuestros servidores.
-                    El desarrollo del sitio fue realizado por <a className='dark:text-laguna-100' href="https://www.linkedin.com/in/facundouferer/" target='_blank'>Facundo</a>, quien trabajó duro para hacer que este sitio sea fácil de usar.
-                    El diseño de ésta aplicaicón está basado en los diseños realizados por <a className='dark:text-laguna-100' href="https://www.linkedin.com/in/jackiegerber/" target='_blank'>Jacqueline</a>.
-                    <br />
-                    Esperamos que disfruten aprendiendo con nosotros y que este sitio les ayude mucho en sus estudios.
-                    <strong>¡Gracias por visitarnos y ser parte de nuestra comunidad de aprendizaje en la Provincia del Chaco!</strong>
-                  </p>
+                  <ul>
+                    <li>
+                      <strong>Despliegue</strong>: <a href="https://www.linkedin.com/in/guillermo-rohde-b240b416/" target='_blank'>Guillermo Rohde</a>
+                    </li>
+                    <li>
+                      <strong>Desarrollo</strong>: <a href="https://www.linkedin.com/in/facundouferer/" target='_blank'>Facundo Uferer</a>
+                    </li>
+                    <li>
+                      <strong>Diseño</strong>:
+                      <a href="https://www.linkedin.com/in/jackiegerber/" target='_blank'>Jacqueline Gerber </a>
+                      y Marcelo Gómez
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
