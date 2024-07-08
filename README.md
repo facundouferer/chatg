@@ -1,30 +1,20 @@
-# React + TypeScript + Vite
+# Proyecto de Frontend para API de Inteligencia Artificial
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es el frontend de una API de inteligencia artificial que presenta una interfaz estilo chat. Permite a los usuarios interactuar con el modelo de IA en tiempo real, enviando preguntas y recibiendo respuestas de manera dinámica. El frontend está construido con React y utiliza Tailwind CSS para el diseño.
 
-Currently, two official plugins are available:
+## Configuración de Variables de Entorno
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para que tu proyecto funcione correctamente, es necesario configurar algunas variables de entorno en un archivo `.env` en la raíz del proyecto. Estas variables se utilizan para interactuar con las APIs y definir ciertos comportamientos de la aplicación.
 
-## Expanding the ESLint configuration
+### Pasos para Configurar el Archivo `.env`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Crear el Archivo `.env`**:
+   Si no tienes un archivo `.env` en la raíz de tu proyecto, créalo.
 
-- Configure the top-level `parserOptions` property like this:
+2. **Agregar las Variables de Entorno**:
+   Abre el archivo `.env` y agrega las siguientes líneas. Asegúrate de reemplazar los valores de ejemplo con tus propias claves y configuraciones.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   ```plaintext
+   VITE_GOOGLE_API_KEY="TU_GOOGLE_API_KEY"
+   VITE_MODEL_NAME="TU_MODEL_NAME"
+   VITE_NOT_RESPONDING="TU_MENSAJE_NO_RESPUESTA"

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import GeminisChat from "../services/google";
 import Bubble from "../components/Bubble";
 import ChatForm from "../components/ChatForm";
