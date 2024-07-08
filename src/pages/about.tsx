@@ -22,25 +22,24 @@ const About = () => {
                 Esta app ha sido creada especialmente para estudiantes, por personal del Ministerio de Educación, Cultura, Ciencia y Tecnología de la
                 Provincia del Chaco, para que puedan aprender de una manera divertida y fácil.
               </p>
+
+              <section id="about">
+                <h2 className="text-xl font-bold mb-2">El Proyecto</h2>
+                <p className="mb-4">
+                  Es un proyecto de software libre y abierto a la colaboración de desarrolladores
+                  de todo el mundo. Puedes descargar el código fuente, probar la aplicación y contribuir con tus propias mejoras.
+                  Toda la documentación y los detalles del proyecto están disponibles en un repositorio de GitHub.
+                  <br />
+                  Si deseas explorar el código fuente, aportar al desarrollo, o simplemente descargar y usar la aplicación,
+                  puedes encontrar el repositorio completo en
+                  <a href="https://github.com/facundouferer/chatg" target="_blank"><strong> github.com</strong></a>
+                  <br />
+                  ¡Esperamos tus contribuciones y sugerencias para hacer de este proyecto algo aún más increíble!
+                </p>
+              </section>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className='items-center justify-center text-center'>
-                  <div className="p-5 flex flex-col items-center bg-laguna-50 dark:bg-laguna rounded-lg">
-                    <h1 className="text-2xl font-bold mb-5">Autoridades</h1>
-                    <h2 className='text-lg'><strong>Arq. Leandro Cesar Zdero</strong></h2>
-                    <h3>Gobernador</h3>
-                    <br />
-                    <h2><strong>Ministra de Educación, Cultura, Ciencia y Tecnología</strong></h2>
-                    <h3>Prof. Sofía Elizabeth Petcoff Naidenoff</h3>
-                    <br />
-                    <h2><strong>Subsecretaria de Ciencia y Tecnología</strong></h2>
-                    <h3>Arq. Claudia Alejandra Pilar</h3>
-                    <br />
-                  </div>
-                  <div className="flex justify-center w-full">
-                    <img src={robot} alt="robotito" className='w-1/3 mt-5' />
-                  </div>
-                </div>
-                <div>
+                <section>
                   <h2 className="text-xl font-bold mb-2">Tecnología y Aprendizaje</h2>
                   <p className="mb-4">
                     Para que aprender sea más divertido y fácil, usamos una inteligencia artificial. Esta inteligencia artificial está
@@ -63,7 +62,24 @@ const About = () => {
                       y Marcelo Gómez
                     </li>
                   </ul>
-                </div>
+                </section>
+                <section className='items-center justify-center text-center'>
+                  <div className="p-5 flex flex-col items-center bg-laguna-50 dark:bg-laguna rounded-lg">
+                    <h1 className="text-2xl font-bold mb-5">Autoridades</h1>
+                    <h2 className='text-lg'><strong>Arq. Leandro Cesar Zdero</strong></h2>
+                    <h3>Gobernador</h3>
+                    <br />
+                    <h2><strong>Ministra de Educación, Cultura, Ciencia y Tecnología</strong></h2>
+                    <h3>Prof. Sofía Elizabeth Petcoff Naidenoff</h3>
+                    <br />
+                    <h2><strong>Subsecretaria de Ciencia y Tecnología</strong></h2>
+                    <h3>Arq. Claudia Alejandra Pilar</h3>
+                    <br />
+                  </div>
+                  <div className="flex justify-center w-full">
+                    <img src={robot} alt="robotito" className='w-1/3 mt-5' />
+                  </div>
+                </section>
               </div>
             </div>
           </div>
